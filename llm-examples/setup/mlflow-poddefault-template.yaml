@@ -1,0 +1,35 @@
+apiVersion: kubeflow.org/v1alpha1
+kind: PodDefault
+metadata:
+  name: add-kindfor-mlflow-secret
+  namespace: kubeflow-kindfor
+  labels:
+    add-scivias-medreport-secret: "true"
+spec:
+  desc: Add kindfor mlflow tracking secret
+  selector:
+    matchLabels:
+      add-kindfor-mlflow-secret: "true"
+  env:
+    - name: MLFLOW_TRACKING_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: kindfor-mlflow-tracking-secrets
+          key: username
+    - name: MLFLOW_TRACKING_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: kindfor-mlflow-tracking-secrets
+          key: password
+    - name: MLFLOW_TRACKING_URI
+      value: "https://kindfor-mlflow.med.uni-muenchen.de"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kindfor-mlflow-tracking-secrets
+  namespace: kubeflow-kindfor
+type: Opaque
+stringData:
+  username: "xxx"
+  password: "yyy"
