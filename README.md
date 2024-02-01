@@ -1,5 +1,5 @@
-# llm-examples
-this repository contains codes for loading and training open source llm models e.g. LlaMA2
+# applyllm python package
+This repository contains codes for loading and training open source llm models e.g. LlaMA2
 
 ## update the venv on local mac host
 ```shell
