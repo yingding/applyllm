@@ -2,6 +2,7 @@ PACKAGE_DIR=.
 REPO_NAME=gitlab-lrz
 PYPI_TEST=testpypi
 PYPI_PROD=pypi
+PROJECT_NAME=applyllm
 PACKAGE_NAME=applyllm
 
 build:
@@ -15,6 +16,9 @@ testpypi:
 
 pypi:
 	python3 -m twine upload --verbose --repository ${PYPI_PROD} ${PACKAGE_DIR}/dist/*
+
+applyllm:
+	python3 -m twine upload --verbose --repository ${PROJECT_NAME} ${PACKAGE_DIR}/dist/*
 
 clean:
 	rm -rf ${PACKAGE_DIR}/__pycache__
