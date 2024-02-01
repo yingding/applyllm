@@ -1,5 +1,5 @@
 '''
-applyllm is a python module for applying LLM for named entity recognition or text generation tasks.
+applyllm is a python package for applying LLM for named entity recognition or text generation tasks.
 
 This works is used in research projects to automatically extract named entities from text.
 It is used as a collection of tools to generate structured data from unstructured text/PDF documents
