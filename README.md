@@ -87,6 +87,7 @@ If the default port 5000 is used
 ps -A | grep gunicorn
 pkill -f gunicorn
 ps -A | grep gunicorn
+cd llm-examples
 mlflow ui
 # mlflow server --host 127.0.0.1 --port 8080
 ```
