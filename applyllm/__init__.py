@@ -225,3 +225,10 @@ from .objectstore_utils import (
 from .pdf_text_loader import (
     PDFHelper,
 )
+
+__version__ = '0.0.1'
+__revision__ = ''
+__all__ = [DirectorySetting, DIR_MODE_MAP, TokenHelper, AcceleratorHelper,
+    AcceleratorStatus, MpsAcceleratorStatus, CudaAcceleratorStatus,
+    S3AccessConf, S3BucketHelper, S3PdfObjHelper, PDFHelper,
+    '__version__', '__revision__']
