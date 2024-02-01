@@ -1,5 +1,10 @@
 # applyllm python package
-This repository contains codes for loading and training open source llm models e.g. LlaMA2
+This repository contains codes for loading and training open source llm models e.g. LlaMA2, Mixtral 8x7B, etc.
+
+## Install the package
+```shell
+pip install applyllm
+```
 
 ## update the venv on local mac host
 ```shell
