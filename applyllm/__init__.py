@@ -226,15 +226,15 @@ PY3 = (sys.version_info[0] >= 3)
 #     PDFHelper,
 # )
 
-from accelerators import *
-from io import *
-from pipelines import *
+# from .accelerators import *
+# from .io import *
+# from .pipelines import *
 from . import accelerators, io, pipelines
 
 # https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527
 __version__ = '0.0.2'
 __revision__ = ''
-__all__ = accelerators.__all__ + io.__all__ + pipelines._all_ + ['__version__', '__revision__']
+__all__ = accelerators.__all__ + io.__all__ + pipelines.__all__ + ['__version__', '__revision__']
 # __all__ = [DirectorySetting, DIR_MODE_MAP, TokenHelper, AcceleratorHelper,
 #     AcceleratorStatus, MpsAcceleratorStatus, CudaAcceleratorStatus,
 #     S3AccessConf, S3BucketHelper, S3PdfObjHelper, PDFHelper,
