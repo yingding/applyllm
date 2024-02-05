@@ -196,7 +196,7 @@ Credits: Yingding Wang
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright (c) 2024 Yingidng Wang <yingdingwang@yahoo.de>
+   Copyright (c) 2024 Yingding Wang <yingdingwang@yahoo.de>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
