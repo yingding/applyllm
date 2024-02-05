@@ -8,7 +8,7 @@ version = "0.0.2.dev0"
 authors = [
     { name="Yingding Wang", email="yingdingwang@yahoo.de" },
 ]
-description = "applyllm: a utility package to apply opensource LLM in local cuda environment"
+description = "A python package to apply opensource LLM in local CUDA environment"
 requires-python = ">=3.8"
 classifiers = [
    "Programming Language :: Python :: 3",
