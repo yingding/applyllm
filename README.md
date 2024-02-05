@@ -1,5 +1,5 @@
 # applyllm: python package
-This repository contains code of "applyllm" python package, for loading and training open source llm models e.g. LlaMA2, Mixtral 8x7B, etc.
+This repository contains code of [applyllm](pypi.org/project/applyllm/) python PyPI package, for loading and training open source llm models e.g. LlaMA2, Mixtral 8x7B, etc.
 
 ## Install the package
 ```shell
