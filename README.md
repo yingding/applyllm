@@ -44,7 +44,6 @@ We need to reactivate the venv so that the ipython kernel is available after ins
 VENV_NAME="llm3.10"
 VENV_DIR="$HOME/VENV"
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
-# ipython kernel install --user --name=shap3.10
 python3 -m ipykernel install --user --name=${VENV_NAME} --display-name ${VENV_NAME}
 ```
 Note: 
