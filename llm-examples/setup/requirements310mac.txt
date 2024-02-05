@@ -51,7 +51,7 @@ torchvision==0.16.2
 
 
 ## langchain LLM
-langchain==0.1.4 # 0.1.0 
+langchain==0.1.5 # 0.1.4
 # langchain==0.0.354
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
@@ -107,6 +107,6 @@ build==1.0.3
 twine==4.0.2 # upload .whl package distribution file
 
 # install your own gitlab package 
---index-url https://gitlab.lrz.de/api/v4/projects/150553/packages/pypi/simple
---trusted-host https://gitlab.lrz.de
-applyllm==0.0.1
+# --index-url https://gitlab.lrz.de/api/v4/projects/150553/packages/pypi/simple
+# --trusted-host https://gitlab.lrz.de
+# applyllm==0.0.1
