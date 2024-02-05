@@ -255,6 +255,7 @@ Makefile need tab as indent, not space 4
 ## Reference:
 * build python resource package .whl https://docs.gitlab.com/ee/user/packages/workflows/build_packages.html#pypi
 * upload .whl to the package registry https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-from-the-group-level
+* python package release name convention https://peps.python.org/pep-0440/
 
 
 

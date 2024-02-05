@@ -214,21 +214,28 @@ Credits: Yingding Wang
 import sys
 PY3 = (sys.version_info[0] >= 3)
 
-from .accelerator_utils import (
-    DirectorySetting, DIR_MODE_MAP, TokenHelper, AcceleratorHelper,
-    AcceleratorStatus, MpsAcceleratorStatus, CudaAcceleratorStatus,
-    )
-from .objectstore_utils import (
-    S3AccessConf, S3BucketHelper, S3PdfObjHelper, 
+# from .accelerator.accelerator_utils import (
+#     DirectorySetting, DIR_MODE_MAP, TokenHelper, AcceleratorHelper,
+#     AcceleratorStatus, MpsAcceleratorStatus, CudaAcceleratorStatus,
+#     )
+# from .io.objectstore_utils import (
+#     S3AccessConf, S3BucketHelper, S3PdfObjHelper, 
+# )
 
-) 
-from .pdf_text_loader import (
-    PDFHelper,
-)
+# from .io.pdf_text_loader import (
+#     PDFHelper,
+# )
 
-__version__ = '0.0.1'
+from accelerators import *
+from io import *
+from pipelines import *
+from . import accelerators, io, pipelines
+
+# https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527
+__version__ = '0.0.2'
 __revision__ = ''
-__all__ = [DirectorySetting, DIR_MODE_MAP, TokenHelper, AcceleratorHelper,
-    AcceleratorStatus, MpsAcceleratorStatus, CudaAcceleratorStatus,
-    S3AccessConf, S3BucketHelper, S3PdfObjHelper, PDFHelper,
-    '__version__', '__revision__']
+__all__ = accelerators.__all__ + io.__all__ + pipelines._all_ + ['__version__', '__revision__']
+# __all__ = [DirectorySetting, DIR_MODE_MAP, TokenHelper, AcceleratorHelper,
+#     AcceleratorStatus, MpsAcceleratorStatus, CudaAcceleratorStatus,
+#     S3AccessConf, S3BucketHelper, S3PdfObjHelper, PDFHelper,
+#     '__version__', '__revision__']
