@@ -14,6 +14,7 @@ class KwargsBuilder:
 
     def build(self):
         # https://peps.python.org/pep-0584/
+        # https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-in-python
         # merge dictionary python 3.9 |= operator, python 3.8 {**d1, **d2}
         for kwargs in self.args_list:
             self.kwargs = {**self.kwargs, **kwargs}
