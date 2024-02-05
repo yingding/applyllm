@@ -12,7 +12,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install --no-cache-dir -r ./setup/requirements310mac.txt
 ```
 
-## Test the load dev package
+## Test/Reload the dev package in venv
 ```shell
 VENV_NAME="llm3.10"
 VENV_DIR="$HOME/VENV"
@@ -251,6 +251,7 @@ You shall see the "package/tag" in the package registry
 ## Makefile **space 4 issue
 Makefile need tab as indent, not space 4
 * https://stackoverflow.com/questions/16931770/makefile4-missing-separator-stop/72198029#72198029
+
 
 ## Reference:
 * build python resource package .whl https://docs.gitlab.com/ee/user/packages/workflows/build_packages.html#pypi
