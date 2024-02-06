@@ -34,7 +34,6 @@ class TokenHelper():
     def need_token(model_type: str, model_name_prefix: str="llama"):
         """check if the model needs token"""
         return model_type.startswith(model_name_prefix)
-    
        
     @staticmethod
     def get_token(dir_setting: DirectorySetting):
@@ -45,7 +44,6 @@ class TokenHelper():
             token = file.read().replace('\n', '')
         return token
     
-
     @staticmethod
     def gen_token_kwargs(model_type: str, dir_setting: DirectorySetting):
         """
@@ -73,7 +71,6 @@ class AcceleratorHelper():
         print(f"torch version: {torch.__version__}")
         print("-"*10)
 
-
     @staticmethod
     def nvidia_device_info() -> str:
         """get the nvidia MIGs device uuid and GPU uuid 
@@ -83,7 +80,6 @@ class AcceleratorHelper():
         # decode the byte object, returns string with \n
         cmd_out_str = result.stdout.decode('utf-8')
         return [line.strip() for line in cmd_out_str.split('\n') if len(line) > 0]
-
 
     @staticmethod
     def extract_nvidia_device_uuids(input: str):
@@ -97,7 +93,6 @@ class AcceleratorHelper():
             # "UUID\:\s" and "\)" not found
             uuid = ""
         return uuid
-
 
     @staticmethod
     def nvidia_device_uuids_filtered_by(is_mig: bool = False, log_output: bool = False) -> str:
@@ -114,7 +109,6 @@ class AcceleratorHelper():
         
         # if multi gpus need to join the device together for pytorch
         return ",".join(uuid_list)
-
 
     @staticmethod
     # def init_cuda_torch(uuids: str, data_path: str, debug: bool = False) -> None:
@@ -134,7 +128,6 @@ class AcceleratorHelper():
             os.environ["CUDA_LAUNCH_BLOCKING"] = "1" 
         # os.environ["TOKENIZERS_PARALLELISM"]="false"
             
-
     @staticmethod
     def init_mps_torch(dir_setting: DirectorySetting) -> None:
         """setup the default env variables for transformers
@@ -157,7 +150,6 @@ class AcceleratorStatus():
     def gpu_usage(self) -> None:
         pass
 
-
     # factory method to create the correct accelerator status class
     @staticmethod
     def create_accelerator_status() -> 'AcceleratorStatus':
@@ -174,12 +166,10 @@ class MpsAcceleratorStatus(AcceleratorStatus):
     def __init__(self):
         pass
 
-
     def accelerator_mem_info(self):
         # allocated
         a = torch.mps.driver_allocated_memory()
         print(f"Allocated memory : {self.byte_gb_info(a)}")
-
 
     def gpu_usage(self) -> None:
         print("-"*20)            
@@ -190,7 +180,6 @@ class MpsAcceleratorStatus(AcceleratorStatus):
 class CudaAcceleratorStatus(AcceleratorStatus):
     def __init__(self):
         pass
-
 
     def accelerator_mem_info(self, device_idx: int):
         # total
@@ -208,14 +197,12 @@ class CudaAcceleratorStatus(AcceleratorStatus):
               f"Allocated memory : {self.byte_gb_info(a)}\n" + 
               f"Free      memory : {self.byte_gb_info(f)}")
 
-
     def accelerator_compute_info(self, device_idx: int) -> None:
         name = torch.cuda.get_device_properties(device_idx).name
         count = torch.cuda.get_device_properties(device_idx).multi_processor_count
         print(f"Device name      : {name} \n" +
               f"Device idx       : {device_idx} \n" +
               f"No. of processors: {count}")    
-
 
     def gpu_usage(self) -> None:        
         num_of_gpus = torch.cuda.device_count();

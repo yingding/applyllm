@@ -44,13 +44,11 @@ class S3BucketHelper():
         )
         self.file_prefix = file_prefix
  
-
     def _get_s3_resource(self):
         # resource is a s3 endpoint 
         s3 = self.session.resource('s3', endpoint_url = self.conf.endpoint, verify=self.conf.verify_host)
         return s3
-    
-            
+             
     def get_object_keys(self, limit_count: int=-1, input_attr_key = "key") -> map:
         """
         Return:
@@ -76,10 +74,6 @@ class S3BucketHelper():
                    )
         return bucket_items_map
     
-    
-    # @staticmethod
-    # def key_to_bytesio(s3: ServiceResource,  )
-    
     def transform_objects(self, s3_keys: map, bytesio_transformer: callable, s3_body_key = "Body", output_id_key: str = "name", output_content_key: str = "bytesio") -> map:
         """
         transforms the selected the s3 object with a given transformer
@@ -93,8 +87,7 @@ class S3BucketHelper():
         }, s3_keys)
         
         return map(bytesio_transformer, bytesio_map)
-    
-    
+       
     def upload_objects(self, data: map, key_mutater: callable = lambda x:x, input_id_key:str = "name", input_body_key: str = "content") -> map:
         s3 = self._get_s3_resource()
         bucket = s3.Bucket(self.conf.bucket_name)
@@ -117,12 +110,10 @@ class S3PdfObjHelper(S3BucketHelper):
             key_lead = "trans2en"
             key_origin_pattern = "pdf"
             key_new_pattern = "txt"
-
-            
+           
         def __init__(self, conf: S3AccessConf, file_prefix: str=""):
             super().__init__(conf, file_prefix)
-            
-        
+                   
         @classmethod
         def pdf_reader_transformer(clz, input_dict: dict) -> dict:
             """
@@ -133,7 +124,6 @@ class S3PdfObjHelper(S3BucketHelper):
                 clz.DataContract.content : PdfReader(input_dict.get(clz.DataContract.bytesio))
             }
         
-        
         @classmethod
         def read_pages_transformer(clz, input_dict: dict) -> dict:
             """
@@ -143,7 +133,6 @@ class S3PdfObjHelper(S3BucketHelper):
                 clz.DataContract.name: input_dict.get(clz.DataContract.name),
                 clz.DataContract.content: "".join([page.extract_text() for page in input_dict.get(clz.DataContract.content).pages])
             }
-        
         
         @classmethod
         def segment_pages_transformer(clz, input_dict: dict) -> dict:
@@ -158,7 +147,6 @@ class S3PdfObjHelper(S3BucketHelper):
                 clz.DataContract.name: input_dict.get(clz.DataContract.name),
                 clz.DataContract.content: [s[i:i + w] for i in range(0, len(s), w)]
             }
-        
         
         @classmethod
         def custom_pages_transformer_factory(clz, segment_transformer: callable) -> dict:
@@ -182,14 +170,8 @@ class S3PdfObjHelper(S3BucketHelper):
                     clz.DataContract.content: ''.join(segment_output)
                 }
             return inner_func
-             
-            
+                 
         @classmethod
         def s3_key_mutater(clz, old_key: str) -> str:
             return f"{clz.DataContract.key_lead}/{old_key.replace(clz.DataContract.key_origin_pattern, clz.DataContract.key_new_pattern)}"
-            
-            
-            
-            
-        
         

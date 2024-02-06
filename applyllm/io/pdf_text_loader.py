@@ -1,5 +1,4 @@
 import sys, os, glob
-# from multipledispatch import multifunction
 from pypdf import PdfReader
 """
 https://pythonhosted.org/multidispatch/
@@ -58,8 +57,7 @@ class PDFHelper():
                 return 0
         else:
             return 0
-        
-        
+              
     def read_txt(self, input) -> str:
         """read from the give path the text and returns a raw string. 
            use print to print the content

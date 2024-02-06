@@ -6,11 +6,9 @@ class KwargsBuilder:
         self.kwargs = {}
         self.args_list = args_list
 
-
     def override(self, kwargs: dict):
         self.args_list.append(kwargs)
         return self
-
 
     def build(self) -> dict:
         """
@@ -25,11 +23,9 @@ class KwargsBuilder:
             self.kwargs = {**self.kwargs, **kwargs}
         return self.kwargs
 
-
     def __repr__(self) -> str:
         return self.kwargs 
     
-
     def __str__(self) -> str:
         return self.__repr__()
 
@@ -40,6 +36,12 @@ class ModelInfo():
         self.inst_msg_begin = inst_msg_begin
         self.inst_msg_end = inst_msg_end
 
+    def __repr__(self) -> str:
+        return f"ModelInfo(model_family={self.model_family}, inst_msg_begin={self.inst_msg_begin}, inst_msg_end={self.inst_msg_end})"
+    
+    def __str__(self) -> str:
+        return self.__repr__()
+    
 
 class ModelCatalog():
     """
@@ -66,7 +68,6 @@ If you don't know the answer to a question, please don't share false information
     }
     INST_MSG_ENDING = "[/INST]"
 
-
     @classmethod
     def get_model_info(cls, model_name) -> 'ModelInfo':
         """
@@ -86,15 +87,12 @@ class PromptHelper():
     def __init__(self, model_info: ModelInfo=ModelCatalog.get_model_info(ModelCatalog.MISTRAL_FAMILY)):
         self.model_info = model_info
 
-
-    def gen_prompt(self, query: str) -> str:      
-        
+    def gen_prompt(self, query: str) -> str:              
         if query is not None or len(query) > 0:
             prompt = f"""{self.model_info.inst_msg_begin}\n{query}\n{self.model_info.inst_msg_end}"""
         else:
             prompt = f"""{self.model_info.inst_msg_begin}{self.model_info.inst_msg_end}"""
         return prompt
     
-
     def get_inst_msg(self) -> str:
         return self.gen_prompt("")
