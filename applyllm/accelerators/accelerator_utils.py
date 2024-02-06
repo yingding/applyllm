@@ -35,6 +35,7 @@ class TokenHelper():
         """check if the model needs token"""
         return model_type.startswith(model_name_prefix)
     
+       
     @staticmethod
     def get_token(dir_setting: DirectorySetting):
         """get the token from the token file"""
@@ -43,6 +44,24 @@ class TokenHelper():
             # file read add a new line to the token, remove it.
             token = file.read().replace('\n', '')
         return token
+    
+
+    @staticmethod
+    def gen_token_kwargs(model_type: str, dir_setting: DirectorySetting):
+        """
+        """
+        if TokenHelper.need_token(model_type):
+            # kwargs = {"use_auth_token": get_token(dir_setting)}
+            token_kwargs = {
+                "token": TokenHelper.get_token(dir_setting),
+                # "truncation_side": "left",
+                # "return_tensors": "pt",            
+                            }
+            print("huggingface token loaded")
+        else:
+            token_kwargs = {}
+            print("huggingface token is NOT needed")
+        return token_kwargs
 
 
 class AcceleratorHelper():
