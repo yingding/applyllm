@@ -1,3 +1,6 @@
-from .builder import KwargsBuilder
+from .builder import (
+    KwargsBuilder, PromptHelper, ModelInfo, ModelCatalog
+    )
 
-__all__ = [KwargsBuilder]
+
+__all__ = [KwargsBuilder, PromptHelper, ModelInfo, ModelCatalog]
