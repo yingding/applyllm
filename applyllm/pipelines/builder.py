@@ -38,7 +38,8 @@ class ModelInfo():
 
     def __repr__(self) -> str:
         # output the raw string of the object
-        return rf"ModelInfo(model_family={self.model_family}, inst_msg_begin={self.inst_msg_begin}, inst_msg_end={self.inst_msg_end})"
+        # {value!r} calls the repr() method of the value to show the raw string inside the f string method
+        return f"ModelInfo(model_family={self.model_family!r}, inst_msg_begin={self.inst_msg_begin!r}, inst_msg_end={self.inst_msg_end!r})"
     
     def __str__(self) -> str:
         return self.__repr__()
