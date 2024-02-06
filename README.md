@@ -27,7 +27,7 @@ VENV_DIR="$HOME/VENV"
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make publish
 ```
-* `$HOME/.pypirc` shall be availabe, see the section `deploy token` below to create `$HOME/.pypirc` file
+* `$HOME/.pypirc` shall be availabe, visit [Build python package docs](./BuildPackage.md) for details to create `$HOME/.pypirc` file to publish PyPI package
 
 ## Add a jupyter notebook kernel to VENV
 ```shell
@@ -55,8 +55,8 @@ Reference:
 
 ## Remove ipykernel
 ```shell
-# jupyter kernelspec uninstall -y <VENV_NAME>
-jupyter kernelspec uninstall -y shap3.10
+VENV_NAME="llm3.10"
+jupyter kernelspec uninstall -y ${VENV_NAME}
 ```
 
 ## Remove all package from venv
