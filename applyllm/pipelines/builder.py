@@ -38,10 +38,10 @@ class ModelInfo():
 
     def __repr__(self) -> str:
         # output the raw string of the object
-        return r'ModelInfo(model_family={}, inst_msg_begin={}, inst_msg_end={})'.format(self.model_family, self.inst_msg_begin, self.inst_msg_end)
+        return rf"ModelInfo(model_family={self.model_family}, inst_msg_begin={self.inst_msg_begin}, inst_msg_end={self.inst_msg_end})"
     
     def __str__(self) -> str:
-        return r'{}'.format(self.__repr__())
+        return self.__repr__()
     
 
 class ModelCatalog():
