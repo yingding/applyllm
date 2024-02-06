@@ -37,7 +37,8 @@ class ModelInfo():
         self.inst_msg_end = inst_msg_end
 
     def __repr__(self) -> str:
-        return f"ModelInfo(model_family={self.model_family}, inst_msg_begin={self.inst_msg_begin}, inst_msg_end={self.inst_msg_end})"
+        # output the raw string of the object
+        return f'ModelInfo(model_family="{self.model_family}", inst_msg_begin="{self.inst_msg_begin}", inst_msg_end="{self.inst_msg_end}")'
     
     def __str__(self) -> str:
         return self.__repr__()
