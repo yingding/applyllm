@@ -20,6 +20,9 @@ class ModelConfig:
     def __init__(self, model_config: dict = {}, **kwargs):
         self.model_config = model_config
 
+    def get_config(self) -> dict:
+        return self.model_config
+
     def __repr__(self):
         # add !r to format the string representation of the object
         return f"ModelConfig(model_config={self.model_config!r})"
