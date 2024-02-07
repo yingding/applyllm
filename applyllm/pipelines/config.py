@@ -15,7 +15,21 @@ class PipelineConfig:
 class ModelConfig:
     """
     Example:
-    Tokenizer 
+
+    kwargs = {
+        "model_config": {
+            "pretrained_model_name_or_path": model_name,
+            "device": "cpu",
+            # "device_map": "auto", # put to GPU if GPU is available
+            "max_position_embeddings": MAX_LENGTH,
+            "max_length": MAX_LENGTH,
+        },
+    }
+    tokenizer_config = ModelConfig(**kwargs)
+    tokenizer = AutoTokenizer.from_pretrained(
+        **tokenizer_config.get_config(), 
+        **token_kwargs,
+    )
     """
     def __init__(self, model_config: dict = {}, **kwargs):
         self.model_config = model_config
@@ -34,14 +48,16 @@ class ModelConfig:
 class LocalCausalLMConfig:
     """
     Example:
-
-    kwargs = {
-        "quantized": True,
-        "model_config": {
+    base_lm_config = ModelConfig(
+        model_config = {
             "pretrained_model_name_or_path": model_name,
             "device_map": "auto",
             # "max_memory": f"{int(torch.cuda.mem_get_info()[0]/1024**3)-2}GB",
-        },
+        }
+    )
+    kwargs = {
+        "quantized": True,
+        "model_config": base_lm_config.get_config(),
         "quantization_config": {
             "quantization_config": transformers.BitsAndBytesConfig(
                 load_in_4bit=True,
@@ -63,8 +79,6 @@ class LocalCausalLMConfig:
         self.quantized = quantized
         self.model_config = model_config
         self.quantization_config = quantization_config
-        # self.bnb_config = kwargs.get('bnb_config', None)
-        # self.model_config = kwargs.get('model_config', None)
 
     def get_config(self) -> dict:
         if self.quantized:
