@@ -5,8 +5,6 @@ Class for configuration of the pipeline, models and experiments for better track
 class ExperimentConfig:
     pass
 
-class ModelConfig:
-    pass
 
 class PipelineConfig:
     pass
