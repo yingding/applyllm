@@ -56,7 +56,7 @@ class LocalCausalLMConfig:
       **token_kwargs,  
     )
     """
-    def __init__(self, quantized: bool = False, model_config: dict = {},  quantization_config = dict = {}, **kwargs):
+    def __init__(self, quantized: bool = False, model_config: dict = {},  quantization_config: dict = {}, **kwargs):
         self.quantized = quantized
         self.model_config = model_config
         self.quantization_config = quantization_config
