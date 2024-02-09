@@ -85,13 +85,14 @@ If the default port 5000 is used
 ps -A | grep gunicorn
 pkill -f gunicorn
 ps -A | grep gunicorn
-cd llm-examples
-mlflow ui
+# use relative path to set the backend-store-uri, full path with file:///root/sub/mlruns
+mlflow ui --backend-store-uri llm-examples/mlruns
 # mlflow server --host 127.0.0.1 --port 8080
 ```
 
 Reference:
 * https://stackoverflow.com/questions/60531166/how-to-safely-shutdown-mlflow-ui/63141642#63141642
+* mlflow backend store uri https://stackoverflow.com/questions/63525498/how-do-i-set-a-different-local-directory-for-mlflow
 
 
 # Relevant Tech Info
