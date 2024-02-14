@@ -145,3 +145,7 @@ python3 -m twine upload --repository gitlab-lrz dist/*
 ```
 
 You shall see the "package/tag" in the package registry
+
+## Python package dependency
+Reference:
+* https://peps.python.org/pep-0631/
