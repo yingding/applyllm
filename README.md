@@ -28,6 +28,7 @@ source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make testpypi
 ```
 * `$HOME/.pypirc` shall be availabe, visit [Build python package docs](./BuildPackage.md) for details to create `$HOME/.pypirc` file to publish PyPI package
+* visit https://test.pypi.org to see the test package published 
 
 ## Publish the pypi package
 ```shell
@@ -37,6 +38,7 @@ source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make applyllm
 ```
 * `$HOME/.pypirc` shall be availabe, visit [Build python package docs](./BuildPackage.md) for details to create `$HOME/.pypirc` file to publish PyPI package
+* visit https://pypi.org/ to see the package published
 
 ## Add a jupyter notebook kernel to VENV
 ```shell
