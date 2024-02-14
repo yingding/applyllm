@@ -33,3 +33,4 @@ reload:
 # https://earthly.dev/blog/python-makefile/
 # make file need tab, instead of space 4, use cat -e -t -v  Makefile
 # https://stackoverflow.com/questions/16931770/makefile4-missing-separator-stop/16945143#16945143
+# can't upload with twine for pypi project using project token with `make applyllm`.
