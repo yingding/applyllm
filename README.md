@@ -20,12 +20,21 @@ source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make reload
 ```
 
+## Publish the test pypi package
+```shell
+VENV_NAME="llm3.10"
+VENV_DIR="$HOME/VENV"
+source ${VENV_DIR}/${VENV_NAME}/bin/activate;
+make clean && make build && make testpypi
+```
+* `$HOME/.pypirc` shall be availabe, visit [Build python package docs](./BuildPackage.md) for details to create `$HOME/.pypirc` file to publish PyPI package
+
 ## Publish the pypi package
 ```shell
 VENV_NAME="llm3.10"
 VENV_DIR="$HOME/VENV"
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
-make clean && make build && make publish
+make clean && make build && make applyllm
 ```
 * `$HOME/.pypirc` shall be availabe, visit [Build python package docs](./BuildPackage.md) for details to create `$HOME/.pypirc` file to publish PyPI package
 
