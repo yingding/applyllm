@@ -1,10 +1,10 @@
 import re
+from langchain.output_parsers.structured import StructuredOutputParser
 
-
-class LangChainParser:
+class StructuredOutputParserHelper:
     @classmethod
     def parse_response_str(
-        clz, parser_response: str, output_parser, verbose: bool = False
+        clz, parser_response: str, output_parser: StructuredOutputParser, verbose: bool = False
     ) -> dict:
         # https://stackoverflow.com/questions/24667065/python-regex-difference-between-and/24667099#24667099
         # https://stackoverflow.com/questions/33312175/matching-any-character-including-newlines-in-a-python-regex-subexpression-not-g/33312193#33312193
@@ -28,7 +28,7 @@ class LangChainParser:
     def parse_response_dict(
         clz,
         parser_response: dict,
-        output_parser,
+        output_parser: StructuredOutputParser,
         text_key: str = "text",
         verbose: bool = False,
     ) -> dict:
