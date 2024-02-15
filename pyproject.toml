@@ -23,7 +23,8 @@ dependencies = [
     'boto3 >= 1.29.0',
     'mlflow >= 2.10.0',
     'bitsandbytes >= 0.42.0',
-    'pypdf >= 3.15.5'
+    'pypdf >= 3.15.5',
+    'accelerate >= 0.26.1',
 ]
 
 [project.urls]
