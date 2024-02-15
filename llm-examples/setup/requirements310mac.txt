@@ -116,3 +116,6 @@ twine==4.0.2 # upload .whl package distribution file
 # --index-url https://gitlab.lrz.de/api/v4/projects/150553/packages/pypi/simple
 # --trusted-host https://gitlab.lrz.de
 # applyllm==0.0.2
+
+# install kfp for local pipeline development
+kfp==1.8.22
