@@ -28,6 +28,8 @@ dependencies = [
     'psycopg[binary] >= 3.1.16',
     'SQLAlchemy >= 2.0.24',
     'unstructured >= 0.11.0',
+    'sentence-transformers >= 2.2.2',
+    'docarray >= 0.39.1',
 ]
 
 [project.urls]
