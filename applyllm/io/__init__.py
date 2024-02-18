@@ -8,4 +8,8 @@ from .pdf_text_loader import (
     DocCorpusS3
 )
 
-__all__ = [S3AccessConf, S3BucketHelper, S3PdfObjHelper, PDFHelper, DocMetaInfo, DocCorpusS3]
+from .sqldbs_utils import (
+    SqlDBConfig, SqlDBHelperFactory
+)
+
+__all__ = [S3AccessConf, S3BucketHelper, S3PdfObjHelper, PDFHelper, DocMetaInfo, DocCorpusS3, SqlDBConfig, SqlDBHelperFactory]
