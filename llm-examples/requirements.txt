@@ -71,5 +71,5 @@ mlflow==2.10.2
 typing-extensions>=4.2.0
 textstat==0.7.3 # calculate llm input stats
 tiktoken==0.5.2 # calculate language similarity evaluation
-applyllm==0.0.2 # apply llm utility 
+applyllm==0.0.3 # apply llm utility 
 
