@@ -58,10 +58,10 @@ class SqlDBHelperFactory:
 
     @staticmethod
     def get_sync_engine(
-        db_config: SqlDBConfig, DEBUG: bool = False
+        db_config: SqlDBConfig, verbose: bool = False
     ) -> sqlalchemy.engine.base.Engine:
         # create sync engine https://docs.sqlalchemy.org/en/20/core/engines.html
-        return sqlalchemy.create_engine(db_config.to_sqlalchemy_url(), echo=DEBUG)
+        return sqlalchemy.create_engine(db_config.to_sqlalchemy_url(), echo=verbose)
 
     @staticmethod
     def get_db_config_from_env(
