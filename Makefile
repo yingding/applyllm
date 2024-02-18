@@ -27,8 +27,18 @@ clean:
 reload:
 	python3 -m pip uninstall -y ${PACKAGE_NAME} && python3 -m pip install ${PACKAGE_DIR}/dist/${PACKAGE_NAME}*.whl
 
+reinstall:
+	python3 -m pip uninstall -y ${PACKAGE_NAME} && python3 -m pip install --user ${PACKAGE_DIR}/dist/${PACKAGE_NAME}*.whl
+ 
+
+# local reload
 # make clean && make build && make reload
-# make clean && make build && make publish
+
+# kf notebook reinstall
+# make clean && make build && make reinstall
+
+# local release pypi package upload
+# make clean && make build && make pypi
 
 # https://earthly.dev/blog/python-makefile/
 # make file need tab, instead of space 4, use cat -e -t -v  Makefile
