@@ -17,7 +17,6 @@ classifiers = [
 
 dependencies = [
     'langchain >= 0.1.0',
-    'langchain-community >= 0.0.17'
     'transformers >= 4.36.2',
     'torch >= 2.1.2',
     'pydantic >= 1.10.13',
