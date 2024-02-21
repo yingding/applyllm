@@ -46,6 +46,10 @@ model_map = {
     "mistral7B-inst02": "mistralai/Mistral-7B-Instruct-v0.2",
     "mixtral8x7B-01":   "mistralai/Mixtral-8x7B-v0.1",
     "mixtral8x7B-inst01":   "mistralai/Mixtral-8x7B-Instruct-v0.1", 
+    "gemma7b-it": "google/gemma-7b-it",
+    "gemma7b" : "google/gemma-7b",
+    "gemma2b-it": "google/gemma-2b-it",
+    "gemma2b" : "google/gemma-2b",
 }
 
 dir_mode_map = {
@@ -57,9 +61,9 @@ default_model_type = "mistral7B-01"
 default_dir_mode = "kf_notebook"
 
 
-def need_token(model_type: str, model_name_prefix: str="llama"):
+def need_token(model_type: str, model_name_prefix: list=["llama", "gemma"]):
     """check if the model needs token"""
-    return model_type.startswith(model_name_prefix)
+    return any([model_type.startswith(prefix) for prefix in model_name_prefix])
 
 
 def get_token(dir_setting: DirectorySetting):
