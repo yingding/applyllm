@@ -79,8 +79,10 @@ peft==0.8.2
 
 # For tensorflow and macosx m1 gput
 # tensorflow==2.14.1
+# backend of pretrained google model from tensorflow hub are on Kaggle
 tensorflow==2.15.0 
 tensorflow-metal==1.1.0
+tensorflow-hub==0.16.1
 
 ## install huggingface datasets for fine-tuning on MPS backend device using torch
 datasets==2.16.1
@@ -115,7 +117,7 @@ twine==4.0.2 # upload .whl package distribution file
 # install your own gitlab package 
 # --index-url https://gitlab.lrz.de/api/v4/projects/150553/packages/pypi/simple
 # --trusted-host https://gitlab.lrz.de
-# applyllm==0.0.2
+applyllm==0.0.3
 
 # install kfp for local pipeline development
 kfp==1.8.22
