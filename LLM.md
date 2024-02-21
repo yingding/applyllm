@@ -12,4 +12,5 @@ this document comprises information of load, compressing and utilizing LLM, SLM.
 ## Gemma Model Family
 * Blog post about working with Gemma Model Family using Huggingface Transformers https://huggingface.co/blog/gemma
 
-
+## Try models on HuggingChat
+* https://huggingface.co/chat
