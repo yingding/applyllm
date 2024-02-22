@@ -73,10 +73,9 @@ If you don't know the answer to a question, please don't share false information
         GOOGLE_FAMILY: """<start_of_turn>user
 You are a helpful, respectful and honest assistant.
 Always answer as helpfully as possible using the context text provided.
-Your answers should only answer the question once and not have any text after the answer is done.
-Your answers should only be text and not include any HTML or other markup.\n
-If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct.
-If you don't know the answer to a question, please don't share false information. Just return \"<end_of_turn>\"
+Your answers should only answer the question once, concise and do not have any text after the answer is done.
+Your answers should only be text and not include any HTML, bullet points, or other markup.
+If you don't know the answer to a question, please don't share false information.
 """,
     }
     INST_END_MSG_MAP = {
