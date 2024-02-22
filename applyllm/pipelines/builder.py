@@ -56,7 +56,8 @@ class ModelCatalog:
 
     META_FAMILY = "meta-llama"
     MISTRAL_FAMILY = "mistralai"
-    INST_MSG_MAP = {
+    GOOGLE_FAMILY = "google"
+    INST_BEGINN_MSG_MAP = {
         MISTRAL_FAMILY: """<s>[INST] You are a helpful, respectful and honest assistant.
 Always answer as helpfully as possible using the context text provided.
 Your answers should only answer the question once and not have any text after the answer is done.\n
@@ -68,9 +69,21 @@ Always answer as helpfully as possible using the context text provided.
 Your answers should only answer the question once and not have any text after the answer is done.\n
 If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct.
 If you don't know the answer to a question, please don't share false information.<</SYS>>
+""",    
+        GOOGLE_FAMILY: """<start_of_turn>user
+You are a helpful, respectful and honest assistant.
+Always answer as helpfully as possible using the context text provided.
+Your answers should only answer the question once and not have any text after the answer is done.
+Your answers should only be text and not include any HTML or other markup.\n
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct.
+If you don't know the answer to a question, please don't share false information. Just return \"<end_of_turn>\"
 """,
     }
-    INST_MSG_ENDING = "[/INST]"
+    INST_END_MSG_MAP = {
+        MISTRAL_FAMILY: "[/INST]",
+        META_FAMILY: "[/INST]",
+        GOOGLE_FAMILY: "<end_of_turn>",
+    }
 
     @classmethod
     def get_model_info(cls, model_name) -> "ModelInfo":
@@ -80,13 +93,21 @@ If you don't know the answer to a question, please don't share false information
         """
         if model_name.startswith(cls.META_FAMILY):
             model_info = ModelInfo(
-                cls.META_FAMILY, cls.INST_MSG_MAP[cls.META_FAMILY], cls.INST_MSG_ENDING
+                cls.META_FAMILY, 
+                cls.INST_BEGINN_MSG_MAP[cls.META_FAMILY], 
+                cls.INST_END_MSG_MAP[cls.META_FAMILY]
             )
         elif model_name.startswith(cls.MISTRAL_FAMILY):
             model_info = ModelInfo(
                 cls.MISTRAL_FAMILY,
-                cls.INST_MSG_MAP[cls.MISTRAL_FAMILY],
-                cls.INST_MSG_ENDING,
+                cls.INST_BEGINN_MSG_MAP[cls.MISTRAL_FAMILY],
+                cls.INST_END_MSG_MAP[cls.MISTRAL_FAMILY]
+            )
+        elif model_name.startswith(cls.GOOGLE_FAMILY):
+            model_info = ModelInfo(
+                cls.GOOGLE_FAMILY,
+                cls.INST_BEGINN_MSG_MAP[cls.GOOGLE_FAMILY],
+                cls.INST_END_MSG_MAP[cls.GOOGLE_FAMILY]
             )
         else:
             model_info = ModelInfo("", "", "")
