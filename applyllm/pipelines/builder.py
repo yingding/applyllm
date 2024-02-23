@@ -70,20 +70,20 @@ Your answers should only answer the question once and not have any text after th
 If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct.
 If you don't know the answer to a question, please don't share false information.<</SYS>>
 """,    
-#         GOOGLE_FAMILY: """<start_of_turn>user
-# You are a helpful, respectful and honest assistant.
-# Always answer as helpfully as possible using the context text provided.
-# Your answers should only answer the question once, concise and do not have any text after the answer is done.
-# Your answers should only be text and not include any HTML, bullet points, or other markup.
-# If you don't know the answer to a question, please don't share false information.
-# """,
         GOOGLE_FAMILY: """<start_of_turn>user
+You are a helpful, respectful and honest assistant.
+Always answer as helpfully as possible using the context text provided.
+Your answers should only answer the question once, concise and do not have any text after the answer is done.
+Your answers should only be text and not include any HTML, bullet points, or other markup.
+
+If a question does not make sense or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information. Just say I don't know.
 """,
+
     }
     INST_END_MSG_MAP = {
         MISTRAL_FAMILY: "[/INST]",
         META_FAMILY: "[/INST]",
-        GOOGLE_FAMILY: "<end_of_turn>",
+        GOOGLE_FAMILY: "<end_of_turn>\n<start_of_turn>model\n",
     }
 
     @classmethod
