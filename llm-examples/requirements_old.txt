@@ -1,10 +1,12 @@
-huggingface_hub==0.21.0
-transformers==4.38.1
+huggingface_hub==0.20.3
+# huggingface_hub==0.20.2
+transformers==4.37.2
+# transformers==4.36.2
 
 # urllib3==2.0.4
 urllib3==1.26.16
 jsonschema==4.19.0
-fastai==2.7.14
+fastai==2.7.13
 # for showing download widget in jupyter notebook
 ipywidgets==8.1.0
 # for python script input arg generation
@@ -27,11 +29,10 @@ sentencepiece==0.1.99
 # Moses Tokenizer for German custom translator
 sacremoses==0.0.53
 # pdf reader
-pypdf==4.0.2
-# pypdf==3.15.5
+pypdf==3.15.5
 
 # CUDA gpu optimized transformer ops
-accelerate==0.27.2
+accelerate==0.26.1
 # transformer model quantization
 bitsandbytes==0.42.0
 einops==0.7.0
@@ -48,7 +49,7 @@ xformers==0.0.23.post1+cu118
 
 
 ## langchain LLM
-langchain==0.1.9 # 0.1.5
+langchain==0.1.5 # 0.1.4
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
 # pydantic==2.5.2
@@ -63,13 +64,12 @@ docarray==0.39.1 # langchain DocArrayInMemorySearch nned docarray
 # langchain==0.0.312 # HuggingFacePipeline broken after 0.0.313 to 0.0.340
 
 # s3 client
-boto3==1.34.50 # previously 1.34.14
+boto3==1.34.14 # previously 1.29.0
 
 # mlflow logging
 mlflow==2.10.2
 typing-extensions>=4.2.0
 textstat==0.7.3 # calculate llm input stats
-tiktoken==0.6.0 # calculate language similarity evaluation
-# tiktoken==0.5.2
+tiktoken==0.5.2 # calculate language similarity evaluation
 applyllm==0.0.3 # apply llm utility 
 
