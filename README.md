@@ -12,6 +12,12 @@ python3 -m pip install --upgrade pip
 python3 -m pip install --no-cache-dir -r ./llm-examples/setup/requirements310mac.txt
 ```
 
+## Setup on Kubeflow notebook
+```shell
+python3 -m pip install --upgrade pip
+python3 -m pip install --no-cache-dir --user --upgrade -r ./llm-examples/requirements.txt --extra-index-url https://download.pytorch.org/whl/cu118
+```
+
 ## Build locally
 ```shell
 VENV_NAME="llm3.10"
