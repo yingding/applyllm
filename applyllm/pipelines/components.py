@@ -10,9 +10,12 @@ class StructuredOutputParserHelper:
         # https://stackoverflow.com/questions/33312175/matching-any-character-including-newlines-in-a-python-regex-subexpression-not-g/33312193#33312193
         # (.+) is greedy, (.+?) stops at the first match
         try:
+            # remove the leading and tailing text outside the ``` ```
             post_proccessed_response = re.search(
                 r"```[\s\S]+```", parser_response
             ).group(0)
+            # remove the comment // patient weight in kilogram } and keep the }
+            post_proccessed_response = re.sub(r"//.*}", "}", post_proccessed_response)
             if verbose:
                 print(post_proccessed_response)
             output_dict = output_parser.parse(post_proccessed_response)
