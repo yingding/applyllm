@@ -19,7 +19,7 @@ class StructuredOutputParserHelper:
 
             # remove the leading and tailing text outside the ``` ```
             # it is unlikely the leading ```json{ will be missing,
-            # but the tailing }```` may be missing and is added previously
+            # but the tailing }``` may be missing and is added previously
             post_proccessed_response = re.search(
                 r"```[\s\S]+```", post_proccessed_response
             ).group(0)
