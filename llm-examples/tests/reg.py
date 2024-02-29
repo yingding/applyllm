@@ -11,10 +11,19 @@ def parse_response_str(response: str) -> str:
 
 def search_response_str(response: str) -> str:
     if not re.search(r"}.*```", response, flags=re.DOTALL):
-        new_response = response + "}\n```"
+        post_proccessed_response = response + "}\n```"
     else:
-        new_response = response
-    return new_response
+        post_proccessed_response = response
+
+    # remove the leading and tailing text outside the ``` ```
+    post_proccessed_response = re.search(
+        r"```[\s\S]+```", post_proccessed_response
+    ).group(0)
+
+    # remove the comment // patient weight in kilogram \n} and keep the \n}
+    # re.DOTALL is a flag that makes . match newlines as well, since default . doesn't match newline characters
+    post_proccessed_response = re.sub(r"//.*}", "\n}", post_proccessed_response, flags=re.DOTALL)
+    return post_proccessed_response
 
 
 def exp_1():

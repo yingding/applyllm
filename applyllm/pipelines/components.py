@@ -10,17 +10,23 @@ class StructuredOutputParserHelper:
         # https://stackoverflow.com/questions/33312175/matching-any-character-including-newlines-in-a-python-regex-subexpression-not-g/33312193#33312193
         # (.+) is greedy, (.+?) stops at the first match
         try:
+            # use reg expr to check if the post_proccessed_response contains }``` string, if not add it
+            #  If it finds a match, it returns a match object. If no matches are found, it returns None.
+            if not re.search(r"}.*```", parser_response, flags=re.DOTALL):
+                post_proccessed_response = parser_response + "}\n```"
+            else:
+                post_proccessed_response = parser_response
+
             # remove the leading and tailing text outside the ``` ```
+            # it is unlikely the leading ```json{ will be missing,
+            # but the tailing }```` may be missing and is added previously
             post_proccessed_response = re.search(
-                r"```[\s\S]+```", parser_response
+                r"```[\s\S]+```", post_proccessed_response
             ).group(0)
+
             # remove the comment // patient weight in kilogram \n} and keep the \n}
             # re.DOTALL is a flag that makes . match newlines as well, since default . doesn't match newline characters
             post_proccessed_response = re.sub(r"//.*}", "\n}", post_proccessed_response, flags=re.DOTALL)
-            # use reg expr to check if the post_proccessed_response contains }``` string, if not add it
-            #  If it finds a match, it returns a match object. If no matches are found, it returns None.
-            if not re.search(r"}.*```", post_proccessed_response, flags=re.DOTALL):
-                post_proccessed_response += "}\n```"
 
             if verbose:
                 print(post_proccessed_response)
