@@ -232,7 +232,7 @@ PY3 = (sys.version_info[0] >= 3)
 from . import accelerators, io, pipelines, utils
 
 # https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527
-__version__ = '0.0.5'
+__version__ = '0.0.6'
 __revision__ = ''
 __all__ = accelerators.__all__ + io.__all__ + pipelines.__all__ + utils.__all__ + ['__version__', '__revision__']
 # __all__ = [DirectorySetting, DIR_MODE_MAP, TokenHelper, AcceleratorHelper,

@@ -71,7 +71,7 @@ typing-extensions>=4.2.0
 textstat==0.7.3 # calculate llm input stats
 tiktoken==0.6.0 # calculate language similarity evaluation
 # tiktoken==0.5.2
-applyllm==0.0.4 # apply llm utility
+applyllm==0.0.5 # apply llm utility
 
 tabula-py==2.9.0
 
