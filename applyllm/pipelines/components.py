@@ -17,6 +17,11 @@ class StructuredOutputParserHelper:
             # remove the comment // patient weight in kilogram \n} and keep the \n}
             # re.DOTALL is a flag that makes . match newlines as well, since default . doesn't match newline characters
             post_proccessed_response = re.sub(r"//.*}", "\n}", post_proccessed_response, flags=re.DOTALL)
+            # use reg expr to check if the post_proccessed_response contains }``` string, if not add it
+            #  If it finds a match, it returns a match object. If no matches are found, it returns None.
+            if not re.search(r"}.*```", post_proccessed_response, flags=re.DOTALL):
+                post_proccessed_response += "}\n```"
+
             if verbose:
                 print(post_proccessed_response)
             output_dict = output_parser.parse(post_proccessed_response)
