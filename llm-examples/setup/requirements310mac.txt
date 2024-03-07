@@ -102,7 +102,7 @@ bitsandbytes==0.42.0
 # optimum[onnxruntime]==1.16.2
 
 # mlflow LLM evaluation
-mlflow==2.10.2
+mlflow==2.11.1 #2.10.2
 typing-extensions>=4.2.0
 # aim==3.17.5
 aim==3.18.1
