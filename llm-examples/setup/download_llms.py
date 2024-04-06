@@ -50,6 +50,8 @@ model_map = {
     "gemma7b" : "google/gemma-7b",
     "gemma2b-it": "google/gemma-2b-it",
     "gemma2b" : "google/gemma-2b",
+    "gemma7b-it-1.1": "google/gemma-1.1-7b-it",
+    "gemma2b-it-1.1": "google/gemma-1.1-2b-it",
 }
 
 dir_mode_map = {
