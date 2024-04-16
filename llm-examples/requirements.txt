@@ -38,32 +38,32 @@ einops==0.7.0
 
 #torch-tensorrt==1.4.0
 
-torch==2.1.2+cu118
-torchaudio==2.1.2+cu118
-torchvision==0.16.2+cu118
-xformers==0.0.23.post1+cu118
+torch==2.2.2+cu118
+torchaudio==2.2.2+cu118
+torchvision==0.17.2+cu118
+xformers==0.0.25.post1+cu118
 
 #torchdata==0.6.1
 #torchtext==0.15.2
 
 
 ## langchain LLM
-langchain==0.1.9 # 0.1.5
+langchain==0.1.16 # 0.1.5
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
 # pydantic==2.5.2
 pydantic==1.10.13 
 # docarray doesn't work with pydantic 2.xx, pydantic_core is installed with 2.xx, must be removed. 
 # pydantic>=1.10.13 # typehints
-unstructured==0.11.0 # for langchain S3DirectoryLoader to load txt file
-sentence-transformers==2.2.2 # for langchain vectorestore embedding model
+unstructured~=0.11.0 # for langchain S3DirectoryLoader to load txt file
+sentence-transformers~=2.2.2 # for langchain vectorestore embedding model
 docarray==0.39.1 # langchain DocArrayInMemorySearch nned docarray
 
 # llama-index==0.9.8.post1
 # langchain==0.0.312 # HuggingFacePipeline broken after 0.0.313 to 0.0.340
 
 # s3 client
-boto3==1.34.50 # previously 1.34.14
+boto3==1.34.84 # previously 1.34.50
 
 # mlflow logging
 mlflow==2.10.2
