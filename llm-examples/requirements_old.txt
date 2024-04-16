@@ -1,12 +1,12 @@
-huggingface_hub==0.22.2
-transformers==4.39.3
+huggingface_hub==0.21.0
+transformers==4.38.1
 
 # urllib3==2.0.4
 urllib3==1.26.16
 jsonschema==4.19.0
-fastai~=2.7.14
+fastai==2.7.14
 # for showing download widget in jupyter notebook
-ipywidgets~=8.1.0
+ipywidgets==8.1.0
 # for python script input arg generation
 click==8.1.7
 # argparse==1.4.0
@@ -31,9 +31,9 @@ pypdf==4.0.2
 # pypdf==3.15.5
 
 # CUDA gpu optimized transformer ops
-accelerate==0.29.2
+accelerate==0.27.2
 # transformer model quantization
-bitsandbytes==0.43.1
+bitsandbytes==0.42.0
 einops==0.7.0
 
 #torch-tensorrt==1.4.0
