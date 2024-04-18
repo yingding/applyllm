@@ -1,10 +1,7 @@
-# huggingface_hub==0.20.3
-huggingface_hub==0.21.0
+huggingface_hub==0.22.2
 
-# transformers==4.37.2
-transformers==4.38.1 #support gemma model
-# transformers==4.36.2
-# transformers==4.35.2
+transformers==4.39.3 #support gemma model
+
 
 #xformers==0.0.20 # do not install xformers, which makes accelerate not loading the llm model into gpus
 # huggingface_hub use_auth_token need this.
@@ -34,64 +31,52 @@ sentencepiece==0.1.99
 # Moses Tokenizer for German custom translator
 sacremoses==0.0.53
 # pdf reader
-pypdf==3.15.5
-
-# torch==2.1.2
-# torchaudio==2.1.2
-# torchvision==0.16.2
-# fastai==2.7.13
+# pypdf==3.15.5
+pypdf==4.2.0
 
 # Testing MPS memory features
-torch==2.2.1
-torchaudio==2.2.1
-torchvision==0.17.1
+torch==2.2.2
+torchaudio==2.2.2
+torchvision==0.17.2
 # vision library
 fastai==2.7.14 # fastai depends on torch version
 
-
-#torchdata==0.6.1
-#torchtext==0.15.2
-#torch-tensorrt==1.4.0
-
 ## langchain LLM
-langchain==0.1.11 # 0.1.5
-# langchain==0.0.354
+langchain==0.1.16
+
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
 # pydantic==2.5.2
 pydantic==1.10.13 
 # docarray doesn't work with pydantic 2.xx, pydantic_core is installed with 2.xx, must be removed. 
 # pydantic>=1.10.13 # typehints
-unstructured==0.11.0 # for langchain S3DirectoryLoader to load txt file
-sentence-transformers==2.2.2 # for langchain vectorestore embedding model
+unstructured>=0.11.0 # for langchain S3DirectoryLoader to load txt file
+sentence-transformers>=2.2.2 # for langchain vectorestore embedding model
 docarray==0.39.1 # langchain DocArrayInMemorySearch nned docarray
 
-# llama-index==0.9.8.post1
-# langchain==0.0.312 # HuggingFacePipeline broken after 0.0.313 to 0.0.340
-
 # s3 client
-boto3==1.34.50 # previously 1.34.14
+boto3==1.34.84
 
 ## GPU/MPS training speed up for tranformers
-# accelerate==0.26.1
-accelerate==0.27.2
-peft==0.8.2
-# peft==0.7.1
+# accelerate==0.27.2
+accelerate==0.29.2
+peft==0.10.0
 
 # For tensorflow and macosx m1 gput
 # tensorflow==2.14.1
 # backend of pretrained google model from tensorflow hub are on Kaggle
-tensorflow==2.15.0 
+tensorflow==2.16.1 
 tensorflow-metal==1.1.0
 tensorflow-hub==0.16.1
 
 ## install huggingface datasets for fine-tuning on MPS backend device using torch
-datasets==2.16.1
+datasets==2.18.0
 # huggingface evaluate for evaluate the fine-tuned model
 evaluate==0.4.1
 
 # transformer model quantization
 bitsandbytes==0.42.0
+#bitsandbytes==0.43.1
 
 # Nvidia GPU only (speed up transformers architecture), macosx arm chip has integrated gpu
 # xformers==0.0.23.post1
@@ -102,18 +87,20 @@ bitsandbytes==0.42.0
 # optimum[onnxruntime]==1.16.2
 
 # mlflow LLM evaluation
-mlflow==2.11.1 #2.10.2
+# mlflow==2.11.1
+mlflow==2.12.1
 typing-extensions>=4.2.0
-# aim==3.17.5
-aim==3.18.1
+
+aim==3.19.3
 aim-mlflow==0.2.1
 textstat==0.7.3
 tiktoken==0.6.0
 # tiktoken==0.5.2
 
 # build python packages
-build==1.0.3
-# twine==4.0.2 # upload .whl package distribution file
+# build==1.0.3
+build==1.2.1
+# twine==5.0.0 # upload .whl package distribution file
 twine==5.0.0 # upload .whl package distribution file
 
 # install your own gitlab package 

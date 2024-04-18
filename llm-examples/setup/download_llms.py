@@ -41,7 +41,8 @@ model_map = {
     "llama7B-chat":     "meta-llama/Llama-2-7b-chat-hf",
     "llama13B-chat" :   "meta-llama/Llama-2-13b-chat-hf",
     "llama70B-chat" :   "meta-llama/Llama-2-70b-chat-hf",
-    # "70B" : "meta-llama/Llama-2-70b-hf"
+    "llama3-8B-inst" :  "meta-llama/Meta-Llama-3-8B-Instruct",
+    "llama3-70B-inst" :  "meta-llama/Meta-Llama-3-70B-Instruct",
     "mistral7B-01":     "mistralai/Mistral-7B-v0.1",
     "mistral7B-inst02": "mistralai/Mistral-7B-Instruct-v0.2",
     "mixtral8x7B-01":   "mistralai/Mixtral-8x7B-v0.1",
