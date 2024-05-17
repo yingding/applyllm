@@ -1,10 +1,14 @@
-huggingface_hub==0.22.2
-transformers==4.39.3
+# huggingface_hub==0.22.2
+huggingface_hub==0.23.0
+# transformers==4.39.3
+transformers==4.40.2
 
 # urllib3==2.0.4
 urllib3==1.26.16
-jsonschema==4.19.0
-fastai~=2.7.14
+# jsonschema==4.19.0
+jsonschema==4.22.0
+# fastai~=2.7.14
+fastai~=2.7.15
 # for showing download widget in jupyter notebook
 ipywidgets~=8.1.0
 # for python script input arg generation
@@ -20,62 +24,73 @@ click==8.1.7
 # kfp==1.8.22
 # 
 # python method overload
-multipledispatch==1.0.0
+# multipledispatch==1.0.0
+
 # For T5 huggingface need sentencepiece
-sentencepiece==0.1.99
+# sentencepiece==0.1.99
+sentencepiece==0.2.0
 #
 # Moses Tokenizer for German custom translator
-sacremoses==0.0.53
+# sacremoses==0.0.53
+sacremoses==0.1.1
 # pdf reader
-pypdf==4.0.2
+# pypdf==4.0.2
+pypdf==4.2.0
 # pypdf==3.15.5
 
 # CUDA gpu optimized transformer ops
-accelerate==0.29.2
+# accelerate==0.29.2
+accelerate==0.30.1
 # transformer model quantization
 bitsandbytes==0.43.1
-einops==0.7.0
+einops==0.8.0
+# einops==0.7.0
 
 #torch-tensorrt==1.4.0
 
-torch==2.2.2+cu118
-torchaudio==2.2.2+cu118
-torchvision==0.17.2+cu118
-xformers==0.0.25.post1+cu118
+# torch==2.2.2+cu118
+# torchaudio==2.2.2+cu118
+# torchvision==0.17.2+cu118
+# xformers==0.0.25.post1+cu118
+
+torch==2.3.0+cu118
+torchaudio==2.3.0+cu118
+torchvision==0.18.0+cu118
+xformers==0.0.26.post1+cu118
 
 #torchdata==0.6.1
 #torchtext==0.15.2
 
 
 ## langchain LLM
-langchain==0.1.16 # 0.1.5
+langchain==0.1.20 # 0.1.16
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
-# pydantic==2.5.2
-pydantic==1.10.13 
-# docarray doesn't work with pydantic 2.xx, pydantic_core is installed with 2.xx, must be removed. 
-# pydantic>=1.10.13 # typehints
-unstructured~=0.11.0 # for langchain S3DirectoryLoader to load txt file
-sentence-transformers~=2.2.2 # for langchain vectorestore embedding model
-docarray==0.39.1 # langchain DocArrayInMemorySearch nned docarray
+# pydantic==1.10.13 
+pydantic==2.7.1 
+# docarray doesn't work with pydantic 2.xx, pydantic_core is installed with 2.xx, must be removed.
+docarray==0.40.0
+# docarray==0.39.1 # langchain DocArrayInMemorySearch nned docarray 
 
-# llama-index==0.9.8.post1
-# langchain==0.0.312 # HuggingFacePipeline broken after 0.0.313 to 0.0.340
+# unstructured~=0.11.0 # for langchain S3DirectoryLoader to load txt file
+# sentence-transformers~=2.2.2 # for langchain vectorestore embedding model
+unstructured~=0.13.7 # for langchain S3DirectoryLoader to load txt file
+sentence-transformers~=2.7.0 # for langchain vectorestore embedding model
 
 # s3 client
-boto3==1.34.84 # previously 1.34.50
+boto3==1.34.107 # previously 1.34.84
 
 # mlflow logging
-mlflow==2.11.3 # same as the backend version from bitnami
+mlflow==2.12.2 # same as the backend version from bitnami
 typing-extensions>=4.2.0
 textstat==0.7.3 # calculate llm input stats
-tiktoken==0.6.0 # calculate language similarity evaluation
+# tiktoken==0.6.0 # calculate language similarity evaluation
+tiktoken==0.7.0 # calculate language similarity evaluation
 # tiktoken==0.5.2
 applyllm==0.0.6 # apply llm utility
 
-tabula-py==2.9.0
+tabula-py==2.9.1 # pdf table extraction
 
 ## jupyterlab-git dependencies
-nbdime==4.0.1
-nbclassic==1.0.0
-
+# nbdime==4.0.1
+# nbclassic==1.0.0
