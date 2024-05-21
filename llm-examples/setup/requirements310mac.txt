@@ -114,6 +114,8 @@ kfp==1.8.22
 # For Stable DiffusionPipeline
 diffusers==0.27.2
 
+onnx==1.16.0
+
 # Cuda dependeny for phi-3
 # flash-attention==1.0.0
 # flash-attn==2.5.8
