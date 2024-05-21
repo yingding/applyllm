@@ -53,6 +53,7 @@ model_map = {
     "gemma2b":    "google/gemma-2b",
     "gemma7b-it-1.1": "google/gemma-1.1-7b-it",
     "gemma2b-it-1.1": "google/gemma-1.1-2b-it",
+    "phi3-medium-128k-inst": "microsoft/Phi-3-medium-128k-instruct",
 }
 
 dir_mode_map = {
@@ -127,16 +128,28 @@ def download(model_type: str=default_model_type, dir_mode: str=default_dir_mode)
     print(f"model_name: {model_name}")
     print("-"*10)
     
+    kwargs = {"trust_remote_code" : True}
     if need_token(model_type):
         # kwargs = {"use_auth_token": get_token(dir_setting)}
-        kwargs = {"token": get_token(dir_setting)}
+        kwargs = {
+            **kwargs,
+            "token": get_token(dir_setting)
+        }
         print("huggingface token loaded")
     else:
-        kwargs = {}
         print("huggingface token is NOT needed")
     print("-"*10)
     tokenizer = AutoTokenizer.from_pretrained(model_name, **kwargs)
     model = AutoModelForCausalLM.from_pretrained(model_name, **kwargs)
+    
+    # all data will be saved in the local_dir, is not what we want
+    # local_dir=dir_setting.get_cache_home()
+    # print(f"local_dir: {local_dir}")
+
+    # from huggingface_hub import snapshot_download, hf_hub_download
+    # # download all files https://github.com/ggerganov/llama.cpp/discussions/2948
+    # snapshot_download(repo_id=model_name, local_dir=local_dir,
+    #                  local_dir_use_symlinks=False, revision="main")
     
 if __name__ == '__main__':
     """
