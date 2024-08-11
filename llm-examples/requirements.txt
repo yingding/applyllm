@@ -63,7 +63,8 @@ xformers==0.0.26.post1+cu118
 
 
 ## langchain LLM
-langchain==0.1.20 # 0.1.16
+# langchain==0.1.20 # 0.1.16
+langchain==0.2.12
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
 # pydantic==1.10.13 

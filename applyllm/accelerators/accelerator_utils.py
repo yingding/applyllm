@@ -30,28 +30,34 @@ DIR_MODE_MAP = {
 
 
 class TokenHelper():
-    @staticmethod
-    def need_token(model_type: str, model_name_prefix: str="llama"):
+    def __init__(self, dir_setting: DirectorySetting, prefix_list: list = ["llama"]):
+        self.prefix_list = prefix_list
+        self.dir_setting = dir_setting
+
+
+    def need_token(self, model_type: str) -> bool:
         """check if the model needs token"""
-        return model_type.startswith(model_name_prefix)
+        # check if the model type startswith a string in the prefix list
+        # model_type.startswith(model_name_prefix)
+        return any([model_type.startswith(prefix) for prefix in self.prefix_list])
        
-    @staticmethod
-    def get_token(dir_setting: DirectorySetting):
+    
+    def get_token(self):
         """get the token from the token file"""
-        token_file_path = dir_setting.get_token_file()
+        token_file_path = self.dir_setting.get_token_file()
         with open(token_file_path, "r") as file:
             # file read add a new line to the token, remove it.
             token = file.read().replace('\n', '')
         return token
     
-    @staticmethod
-    def gen_token_kwargs(model_type: str, dir_setting: DirectorySetting):
+    
+    def gen_token_kwargs(self, model_type: str):
         """
         """
-        if TokenHelper.need_token(model_type):
+        if self.need_token(model_type):
             # kwargs = {"use_auth_token": get_token(dir_setting)}
             token_kwargs = {
-                "token": TokenHelper.get_token(dir_setting),
+                "token": self.get_token(),
                 # "truncation_side": "left",
                 # "return_tensors": "pt",            
                             }

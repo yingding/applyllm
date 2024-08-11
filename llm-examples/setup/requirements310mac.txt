@@ -1,6 +1,9 @@
-huggingface_hub==0.23.1
+# huggingface_hub==0.23.1
+huggingface_hub==0.24.5
 
-transformers==4.41.0 #support gemma model
+# transformers==4.41.0 #support gemma model
+transformers==4.44.0 #support gemma model
+langchain-huggingface==0.0.3
 
 
 #xformers==0.0.20 # do not install xformers, which makes accelerate not loading the llm model into gpus
@@ -35,14 +38,18 @@ sacremoses==0.0.53
 pypdf==4.2.0
 
 # Testing MPS memory features
-torch==2.3.0
-torchaudio==2.3.0
-torchvision==0.18.0
+# torch==2.3.0
+# torchaudio==2.3.0
+# torchvision==0.18.0
+torch==2.4.0
+torchaudio==2.4.0
+torchvision==0.19.0
 # vision library
 # fastai==2.7.14 # fastai depends on torch version
 
 ## langchain LLM
-langchain==0.2.0
+# langchain==0.2.0
+langchain==0.2.12
 
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
