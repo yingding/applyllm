@@ -13,6 +13,7 @@ test_trainer/
 **/mlflow-poddefault.yaml
 **/mlruns
 **/aimruns
+**/nosync
 
 
 **/dist

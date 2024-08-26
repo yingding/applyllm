@@ -48,8 +48,9 @@ torchvision==0.19.0
 # fastai==2.7.14 # fastai depends on torch version
 
 ## langchain LLM
-# langchain==0.2.0
-langchain==0.2.12
+## langchain==0.2.12
+langchain==0.2.14
+langchain-community==0.2.12
 
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
@@ -112,7 +113,7 @@ twine==5.0.0 # upload .whl package distribution file
 # install your own gitlab package 
 # --index-url https://gitlab.lrz.de/api/v4/projects/150553/packages/pypi/simple
 # --trusted-host https://gitlab.lrz.de
-applyllm==0.0.6
+applyllm==0.0.7
 
 # install kfp for local pipeline development
 kfp==1.8.22
