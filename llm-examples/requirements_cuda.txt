@@ -1,4 +1,7 @@
 # python3 -m pip install -r requirements_cuda.txt --user --upgrade
-langchain-community==0.2.15
-langchain-huggingface==0.0.3
-accelerate==0.34.0
+
+# the following packages are baked into custom image
+# langchain-community==0.2.15
+# langchain-huggingface==0.0.3
+# accelerate==0.34.0
+# plotly==5.24.0
