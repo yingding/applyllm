@@ -5,7 +5,7 @@ import re
 import sys
 import time
 from dataclasses import dataclass
-import Warnings
+import warnings
 
 
 @dataclass
@@ -169,7 +169,7 @@ class AcceleratorHelper:
                 - "debug" (bool, optional): A flag to enable or disable debug mode. Defaults to False.
 
         Raises:
-            Warnings.warn: If the specified accelerator is not supported.
+            warnings.warn: If the specified accelerator is not supported.
         """
         if (
             accelerator == "mps"
@@ -191,10 +191,10 @@ class AcceleratorHelper:
                 )
             else:
                 # warning with Warnings class
-                Warnings.warn("UUIDs not provided for CUDA accelerator")
+                warnings.warn("UUIDs not provided for CUDA accelerator")
         else:
             # warning with Warnings class
-            Warnings.warn("accelerator not supported")
+            warnings.warn("accelerator not supported")
 
 
 class AcceleratorStatus:
