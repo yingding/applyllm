@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "applyllm"
-version = "0.0.8.dev0"
+version = "0.0.8"
 authors = [
     { name="Yingding Wang", email="yingdingwang@yahoo.de" },
 ]
