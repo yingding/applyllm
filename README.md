@@ -20,16 +20,16 @@ python3 -m pip install --no-cache-dir --user --upgrade -r ./llm-examples/require
 
 ## Build locally
 ```shell
-VENV_NAME="llm3.10"
-VENV_DIR="$HOME/VENV"
+VENV_NAME="llm3.10";
+VENV_DIR="$HOME/VENV";
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make reload
 ```
 
 ## Publish the test pypi package
 ```shell
-VENV_NAME="llm3.10"
-VENV_DIR="$HOME/VENV"
+VENV_NAME="llm3.10";
+VENV_DIR="$HOME/VENV";
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make testpypi
 ```
@@ -38,8 +38,8 @@ make clean && make build && make testpypi
 
 ## Publish the pypi package
 ```shell
-VENV_NAME="llm3.10"
-VENV_DIR="$HOME/VENV"
+VENV_NAME="llm3.10";
+VENV_DIR="$HOME/VENV";
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make pypi
 ```
@@ -49,8 +49,8 @@ make clean && make build && make pypi
 
 ## Add a jupyter notebook kernel to VENV
 ```shell
-VENV_NAME="llm3.10"
-VENV_DIR="$HOME/VENV"
+VENV_NAME="llm3.10";
+VENV_DIR="$HOME/VENV";
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 python3 -m pip install --upgrade pip
 python3 -m pip install ipykernel
