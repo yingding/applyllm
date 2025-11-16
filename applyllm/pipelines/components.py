@@ -1,5 +1,8 @@
 import re
-from langchain.output_parsers.structured import StructuredOutputParser
+try:
+    from langchain_core.output_parsers import StructuredOutputParser
+except ImportError:
+    from langchain.output_parsers.structured import StructuredOutputParser
 
 class StructuredOutputParserHelper:
     @classmethod
