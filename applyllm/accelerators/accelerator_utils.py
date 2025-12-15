@@ -55,21 +55,31 @@ class TokenHelper:
     def get_token(self):
         """get the token from the token file"""
         token_file_path = self.dir_setting.get_token_file()
-        with open(token_file_path, "r") as file:
-            # file read add a new line to the token, remove it.
-            token = file.read().replace("\n", "")
+        token = None
+        try:
+            with open(token_file_path, "r") as file:
+                # file read add a new line to the token, remove it.
+                token = file.read().replace("\n", "")
+        except FileNotFoundError:
+            warnings.warn(f"Token file not found: {token_file_path}")
+            token = None
         return token
 
     def gen_token_kwargs(self, model_type: str):
         """ """
         if self.need_token(model_type):
             # kwargs = {"use_auth_token": get_token(dir_setting)}
-            token_kwargs = {
-                "token": self.get_token(),
-                # "truncation_side": "left",
-                # "return_tensors": "pt",
-            }
-            print("huggingface token loaded")
+            token = self.get_token()
+            if token is not None:
+                token_kwargs = {
+                    "token": token,
+                    # "truncation_side": "left",
+                    # "return_tensors": "pt",
+                }
+                print("huggingface token loaded")
+            else:
+                token_kwargs = {}
+                print("huggingface token is NOT loaded")
         else:
             token_kwargs = {}
             print("huggingface token is NOT needed")
@@ -228,7 +238,11 @@ class MpsAcceleratorStatus(AcceleratorStatus):
     def accelerator_mem_info(self):
         # allocated
         a = torch.mps.driver_allocated_memory()
-        print(f"Allocated memory : {self.byte_gb_info(a)}")
+        # a = torch.mps.current_allocated_memory()
+        r = torch.mps.recommended_max_memory()
+        print(
+            f"Recom.Max memory : {self.byte_gb_info(r)}\n" +
+            f"Allocated memory : {self.byte_gb_info(a)}")
 
     def gpu_usage(self) -> None:
         print("-" * 20)

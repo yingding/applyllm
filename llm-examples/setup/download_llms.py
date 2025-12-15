@@ -43,6 +43,7 @@ model_map = {
     "llama70B-chat":    "meta-llama/Llama-2-70b-chat-hf",
     "llama3-8B-inst":   "meta-llama/Meta-Llama-3-8B-Instruct",
     "llama3-70B-inst":  "meta-llama/Meta-Llama-3-70B-Instruct",
+    "llama3.2-3B-inst": "meta-llama/Llama-3.2-3B-Instruct",
     "mistral7B-01":     "mistralai/Mistral-7B-v0.1",
     "mistral7B-inst02": "mistralai/Mistral-7B-Instruct-v0.2",
     "mixtral8x7B-01":   "mistralai/Mixtral-8x7B-v0.1",
@@ -59,6 +60,7 @@ model_map = {
 dir_mode_map = {
     "kf_notebook": DirectorySetting(),
     "mac_local": DirectorySetting(home_dir="/Users/yingding", transformers_cache_home="MODELS", huggingface_token_file="MODELS/.huggingface_token"),
+    "mac_code_local": DirectorySetting(home_dir="/Users/yingding/Code", transformers_cache_home="MODELS", huggingface_token_file="MODELS/.huggingface_token"),
 }
 
 default_model_type = "mistral7B-01"
@@ -108,10 +110,11 @@ def download(model_type: str=default_model_type, dir_mode: str=default_dir_mode)
 
     set directory:
     python3 download_llms.py -t mistral7B-01 -m kf_notebook
+    python3 download_llms.py -t llama3.2-3B-inst -m mac_code_local
     
     Args:
       model_type: "llama7B-chat", "llama13B-chat", "llama70B-chat", "mistral7B-01", "mistral7B-inst02", "mistral8x7B-01"
-      dir_mode: "kf_notebook", "mac_local"
+      dir_mode: "kf_notebook", "mac_local", "mac_code_local"
     """
  
     dir_setting=dir_mode_map.get(dir_mode, dir_mode_map[default_dir_mode])

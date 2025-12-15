@@ -1,10 +1,11 @@
 # huggingface_hub==0.24.5
 huggingface-hub==1.2.3
+# huggingface-hub==0.36.0
 
 # transformers==4.44.0 #support gemma model
 # transformers==4.57.3 #support gemma model
 transformers~=5.0.0rc1
-# langchain-huggingface==1.2.0
+# langchain-huggingface==1.2.0 # need huggingface-hub==0.36.0
 
 #xformers==0.0.20 # do not install xformers, which makes accelerate not loading the llm model into gpus
 # huggingface_hub use_auth_token need this.
@@ -56,6 +57,7 @@ torchvision==0.24.1
 # langchain-community==0.2.12
 langchain==1.2.0
 langchain-community==0.4.1
+langchain-openai==1.1.3
 
 # need Pydantic 1.10.12 to better evaluate typehints
 # https://github.com/langchain-ai/langchain/issues/8577#issuecomment-1663249273
@@ -128,7 +130,7 @@ twine==6.2.0 # upload .whl package distribution file
 # install your own gitlab package 
 # --index-url https://gitlab.lrz.de/api/v4/projects/150553/packages/pypi/simple
 # --trusted-host https://gitlab.lrz.de
-applyllm==0.0.8.post1
+applyllm==0.0.9.rc0
 
 # install kfp for local pipeline development
 # kfp==1.8.22
