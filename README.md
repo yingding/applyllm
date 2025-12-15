@@ -100,11 +100,15 @@ aim up --repo=${aim_repo_path}
 ## Restart MLflow UI
 If the default port 5000 is used
 ```shell
+# go to the project root dir first.
+# cd $HOME/Code/VCS/ai/applyllm
 ps -A | grep gunicorn
 pkill -f gunicorn
 ps -A | grep gunicorn
 # use relative path to set the backend-store-uri, full path with file:///root/sub/mlruns
-mlflow ui --backend-store-uri llm-examples/mlruns
+# mlflow ui --backend-store-uri ./llm-examples/mlruns
+# mlflow ui --backend-store-uri sqlite:///mlflow.db
+mlflow ui --backend-store-uri sqlite:///llm-examples/mlflow.db
 # mlflow server --host 127.0.0.1 --port 8080
 ```
 

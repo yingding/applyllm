@@ -20,3 +20,4 @@ test_trainer/
 **/applyllm.egg-info
 **/.pypirc
 **/.vscode
+**/mlflow.db
