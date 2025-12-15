@@ -1,9 +1,11 @@
 # Create Gitlab Python Artifacts
 ## Build
 ```shell
-package="./applyllm";
-cd $package;
+projroot=$HOME/Code/VCS/ai
+package="applyllm";
+pushd $projroot/$package;
 python3 -m build;
+popd;
 ```
 
 Output

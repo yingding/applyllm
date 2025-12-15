@@ -19,4 +19,4 @@ test_trainer/
 **/dist
 **/applyllm.egg-info
 **/.pypirc
-
+**/.vscode
