@@ -4,11 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "applyllm"
-version = "0.0.9.rc0"
+version = "0.0.9.rc2"
 authors = [
     { name="Yingding Wang", email="yingdingwang@yahoo.de" },
 ]
 description = "A python package to apply opensource LLM in local CUDA environment"
+readme = "QuickStart.md"
 requires-python = ">=3.12"
 classifiers = [
    "Programming Language :: Python :: 3",
