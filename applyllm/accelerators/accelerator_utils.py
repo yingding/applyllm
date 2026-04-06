@@ -227,6 +227,8 @@ class AcceleratorStatus:
             return MpsAcceleratorStatus()
         elif torch.cuda.is_available():
             return CudaAcceleratorStatus()
+        elif torch.xpu.is_available():
+            return XpuAcceleratorStatus()
         else:
             return AcceleratorStatus()
 
@@ -289,3 +291,46 @@ class CudaAcceleratorStatus(AcceleratorStatus):
             self.accelerator_compute_info(device_idx)
             self.accelerator_mem_info(device_idx)
             print("-" * 20)
+
+
+class XpuAcceleratorStatus(AcceleratorStatus):
+    """XPU accelerator status using torch.xpu APIs (PyTorch >= 2.11)"""
+
+    def __init__(self):
+        pass
+
+    def accelerator_mem_info(self, device_idx: int):
+        # total
+        t = torch.xpu.get_device_properties(device_idx).total_memory
+        # reserved
+        r = torch.xpu.memory_reserved(device_idx)
+        # allocated
+        a = torch.xpu.memory_allocated(device_idx)
+        # still free
+        f = r - a
+        print(
+            f"Physical  memory : {self.byte_gb_info(t)}\n"
+            + f"Reserved  memory : {self.byte_gb_info(r)}\n"
+            + f"Allocated memory : {self.byte_gb_info(a)}\n"
+            + f"Free      memory : {self.byte_gb_info(f)}"
+        )
+
+    def accelerator_compute_info(self, device_idx: int) -> None:
+        name = torch.xpu.get_device_properties(device_idx).name
+        count = torch.xpu.get_device_properties(device_idx).gpu_eu_count
+        print(
+            f"Device name      : {name} \n"
+            + f"Device idx       : {device_idx} \n"
+            + f"No. of EUs       : {count}"
+        )
+
+    def gpu_usage(self) -> None:
+        num_of_xpus = torch.xpu.device_count()
+        print(f"num_of_xpus: {num_of_xpus}")
+        for device_idx in range(num_of_xpus):
+            print("-" * 20)
+            self.accelerator_compute_info(device_idx)
+            self.accelerator_mem_info(device_idx)
+            print("-" * 20)
+
+

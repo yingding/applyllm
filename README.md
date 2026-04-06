@@ -19,11 +19,20 @@ python3 -m pip install --no-cache-dir --user --upgrade -r ./llm-examples/require
 ```
 
 ## Build locally
+
+### Linux/macOS (venv)
 ```shell
 VENV_NAME="llm3.10";
 VENV_DIR="$HOME/VENV";
 source ${VENV_DIR}/${VENV_NAME}/bin/activate;
 make clean && make build && make reload
+```
+
+### Windows (conda)
+```powershell
+conda activate $env:USERPROFILE\Documents\VENV\train3.13winconda;
+$env:PYTHON="python";
+make clean && make build && make reload;
 ```
 
 ## Publish the test pypi package
