@@ -4,31 +4,34 @@ PYPI_TEST=testpypi
 PYPI_PROD=pypi
 PROJECT_NAME=applyllm
 PACKAGE_NAME=applyllm
+PYTHON?=python3
+
+# rm -rf ${PACKAGE_DIR}/__pycache__
+# rm -rf ${PACKAGE_DIR}/dist
 
 build:
-	python3 -m build ${PACKAGE_DIR} -o ${PACKAGE_DIR}/dist
+	${PYTHON} -m build ${PACKAGE_DIR} -o ${PACKAGE_DIR}/dist
 
 lrz:
-	python3 -m twine upload --verbose --repository ${REPO_NAME} ${PACKAGE_DIR}/dist/*
+	${PYTHON} -m twine upload --verbose --repository ${REPO_NAME} ${PACKAGE_DIR}/dist/*
 
 testpypi:
-	python3 -m twine upload --verbose --repository ${PYPI_TEST} ${PACKAGE_DIR}/dist/*
+	${PYTHON} -m twine upload --verbose --repository ${PYPI_TEST} ${PACKAGE_DIR}/dist/*
 
 pypi:
-	python3 -m twine upload --verbose --repository ${PYPI_PROD} ${PACKAGE_DIR}/dist/*
+	${PYTHON} -m twine upload --verbose --repository ${PYPI_PROD} ${PACKAGE_DIR}/dist/*
 
 applyllm:
-	python3 -m twine upload --verbose --repository ${PROJECT_NAME} ${PACKAGE_DIR}/dist/*
+	${PYTHON} -m twine upload --verbose --repository ${PROJECT_NAME} ${PACKAGE_DIR}/dist/*
 
 clean:
-	rm -rf ${PACKAGE_DIR}/__pycache__
-	rm -rf ${PACKAGE_DIR}/dist
+	${PYTHON} -c "import shutil; shutil.rmtree('__pycache__', True); shutil.rmtree('dist', True)"
 
 reload:
-	python3 -m pip uninstall -y ${PACKAGE_NAME} && python3 -m pip install ${PACKAGE_DIR}/dist/${PACKAGE_NAME}*.whl
+	${PYTHON} -m pip uninstall -y ${PACKAGE_NAME} && ${PYTHON} -c "import glob,subprocess,sys; f=glob.glob('dist/${PACKAGE_NAME}*.whl'); sys.exit(subprocess.call([sys.executable,'-m','pip','install']+f))" 
 
 reinstall:
-	python3 -m pip uninstall -y ${PACKAGE_NAME} && python3 -m pip install --user ${PACKAGE_DIR}/dist/${PACKAGE_NAME}*.whl
+	${PYTHON} -m pip uninstall -y ${PACKAGE_NAME} && ${PYTHON} -c "import glob,subprocess,sys; f=glob.glob('dist/${PACKAGE_NAME}*.whl'); sys.exit(subprocess.call([sys.executable,'-m','pip','install','--user']+f))"
  
 
 # local reload
